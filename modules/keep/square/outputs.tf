@@ -37,3 +37,12 @@ output "footprint_outer_corners" {
     }
   }
 }
+
+output "courtyard_center" {
+  description = "Center coordinates of the inner courtyard (useful for spawns, fountains, etc.)."
+  value = {
+    x = var.start_position.x + var.turret_diameter + (var.wall_length / 2)
+    y = var.start_position.y
+    z = var.start_position.z - (var.turret_diameter + (var.wall_length / 2))
+  }
+}

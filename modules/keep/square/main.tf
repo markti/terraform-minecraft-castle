@@ -41,31 +41,31 @@ locals {
     z = local.nw_center.z
   }
 
-  # ---- Wall starts (tangent points) ----------------------------------------
-  # South wall runs EAST from the east tangent of SW turret to the west tangent of SE turret
+  # ---- Wall starts (centered on turret tangents) ----------------------------
+  # South wall runs EAST (+X); right is +Z → center on Z = sw_center.z
   south_wall_start = {
     x = local.sw_center.x + local.r
     y = var.start_position.y
-    z = local.sw_center.z
+    z = local.sw_center.z - floor((var.wall_thickness - 1) / 2)
   }
 
-  # North wall runs EAST from the east tangent of NW turret
+  # North wall runs EAST (+X); right is +Z → center on Z = nw_center.z
   north_wall_start = {
     x = local.nw_center.x + local.r
     y = var.start_position.y
-    z = local.nw_center.z
+    z = local.nw_center.z - floor((var.wall_thickness - 1) / 2)
   }
 
-  # West wall runs NORTH (-Z) from the north tangent of SW turret
+  # West wall runs NORTH (-Z); right is +X → center on X = sw_center.x
   west_wall_start = {
-    x = local.sw_center.x
+    x = local.sw_center.x - floor((var.wall_thickness - 1) / 2)
     y = var.start_position.y
     z = local.sw_center.z - local.r
   }
 
-  # East wall runs NORTH (-Z) from the north tangent of SE turret
+  # East wall runs NORTH (-Z); right is +X → center on X = se_center.x
   east_wall_start = {
-    x = local.se_center.x
+    x = local.se_center.x - floor((var.wall_thickness - 1) / 2)
     y = var.start_position.y
     z = local.se_center.z - local.r
   }

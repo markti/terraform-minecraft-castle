@@ -1,0 +1,4 @@
+**/.debug.tfvars
+**/.terraform/*
+**/terraform.tfstate*
+**/.debug.sh

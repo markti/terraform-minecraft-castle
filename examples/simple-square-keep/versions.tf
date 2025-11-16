@@ -2,7 +2,7 @@ terraform {
   required_providers {
     minecraft = {
       source  = "markti/minecraft"
-      version = "~> 0.0.26"
+      version = "~> 0.0.27"
     }
   }
 }
